@@ -1,70 +1,99 @@
-var app = angular.module('faizal', ['ngMessages', 'ngResource','ui.bootstrap']);
+var app = angular.module('faizal', ['ngMessages', 'ngResource','ui.bootstrap', 'ngRoute']);
 
-app.controller('mainController', ['$scope', '$log', '$filter', '$resource',  '$timeout', '$http', function($scope, $log, $filter, $resource, $timeout, $http)
-              {
+app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+  $locationProvider.hashPrefix('');
     
-    $scope.name  = 'John';
-                  
-                  $scope.characters = 5;
-                  $scope.handle = "";
-                  
-                  $scope.lowercasehandle = function()
-                  {
-                      return $filter('uppercase')($scope.handle);
-                  }
-                  
-  /*   $scope.rules = [
-         { rulename : "must be 5 characters"  },
-         {rulename : "mustnot be used elsewhere"}, 
-         {rulename : "must be cool"}
+        $routeProvider
     
-         
-         
-     ]*/
-                                               
+    .when('/', {
+        templateUrl: 'pages/main.html',
+        controller: 'mainController'
+    })
     
-                  $http.get('https://www.w3schools.com/angular/customers.php').then(function successCallback (result)
-                            {
-                                 console.log(result);
-                      $scope.rules = result.data.records;
-                      
-                        console.log($scope.rules);
+    .when('/second', {
+        templateUrl: 'pages/second.html',
+        controller: 'secondController'
+    })
  
-                         },function errorCallback (data, status)
-                                 {
-                      
-                      console.log(data);
-                       console.log(status);
-                       
-                  }  )  
-                  
-       $timeout(function() {
-           
-            $scope.name  = 'Martin';
-       }, 3000);        
-                  
-    $scope.formattedname = $filter('uppercase')($scope.name);
-       $log.info($scope); 
-    
-    console.log($resource);
-    $log.info($scope.name); 
-    $log.info($scope.formattedname); 
-    
-  /*  console.log($log);
-     console.log($scope);*/
-    
-    $log.log("hello"); 
-    $log.info("information");
-    $log.warn("warn");
-    $log.debug("debug"); 
-    $log.error("error"); 
 
-   /* $scope.name = 'tony';
-    $scope.getname = function(){
-      return 'john Doe';    
-    }
-    $scope.getname();
-    console.log($scope.getname());*/
-    
+
+}]);
+
+//app.controller('mainController',['$scope', '$log', '$filter', '$resource',  '$timeout', function($scope, $log, $filter, $resource, $timeout)
+//              {
+//                                 
+//                     
+//    
+//    $scope.name  = 'John';
+//                  
+//                  $scope.alert = function()
+//                  {
+//                      alert("clicked");
+//                  }
+//                  
+//        
+//                  
+//                  $scope.handle = "";
+//                  
+//                  $scope.lowercasehandle = function()
+//                  {
+//                      return $filter('uppercase')($scope.handle);
+//                  }
+//                   
+//       /*     $scope.$watch('handle', function(newValue, oldValue)
+//             {
+//                $log.info('changed');
+//                console.log('old value :' + oldValue);
+//                console.log( 'new value :' + newValue);
+//           
+//                
+//            });*/
+//                  
+//                   $timeout(function() {
+//                   
+//                        $scope.name ='faizal';
+//                        console.log('time changed');
+//                    
+//                  }, 3000);
+//                             
+//                  
+///*       $timeout(function() {
+//           
+//            $scope.name  = 'Martin';
+//       }, 3000);        
+//                  
+//    $scope.formattedname = $filter('uppercase')($scope.name);
+//       $log.info($scope); 
+//    
+//    console.log($resource);
+//    $log.info($scope.name); 
+//    $log.info($scope.formattedname); */
+//    
+//  /*  console.log($log);
+//     console.log($scope);*/
+//    
+///*    $log.log("hello"); 
+//    $log.info("information");
+//    $log.warn("warn");
+//    $log.debug("debug"); 
+//    $log.error("error"); */
+//
+//   /* $scope.name = 'tony';
+//    $scope.getname = function(){
+//      return 'john Doe';    
+//    }
+//    $scope.getname();
+//    console.log($scope.getname());*/
+//    
+//}])
+app.controller('mainController',['$scope', '$log',  function($scope, $log, $filter, $resource)
+              {
+                                 
+                  $scope.name = "main";
+}])
+app.controller('secondController', ['$scope', '$log',  function($scope, $log, $filter, $resource)
+              {
+                                 
+                  $scope.name = "second";
 }])
 
