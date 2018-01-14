@@ -1,0 +1,134 @@
+<html ng-app="faizal">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+<body>
+
+    <div id="main" class="container">
+        <nav class="navbar navbar-inverse">
+  <ul class="nav navbar-nav">
+    <li><a href="#">Home</a></li>
+    <li><a href="#/second">Second</a></li>
+  </ul>
+  <p class="navbar-text">Some text</p>
+</nav>
+        
+         <div ng-view></div>
+        
+    <h1> people</h1>
+        <ul class="people">
+        <li>John Deo </li>
+        <li>John Deo </li>
+        <li>John Deo </li>
+        </ul>
+    </div>
+    <h1 class="greeting"> <b> dsaasdas</b></h1>
+    <select id="lang">
+    <option value="en">en</option>
+    <option value="es">es</option>
+    </select>
+    
+    <div class="greetings">d</div>
+
+     <h3 ng-reply="hello back"> Hello World</h3>
+    
+    
+<!--    <div ng-controller="mainController"> 
+        
+        <a href="#/bookmark/1">bookmark</a>
+           <a href="#/bookmark/2">bookmark</a>
+           <a href="#/bookmark/3">bookmark</a>
+       <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+        
+   <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+        
+         <p id="/bookmark/1">  Bookmark is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+    
+     <h4> Hello {{ name }}  Machi </h4>
+        
+        
+        <input type="text" ng-model="handle">
+        
+        <h5>twitter.com/ {{lowercasehandle()}}</h5>
+        
+        <input type="button" value="clickme" ng-click="alert()">
+        
+       <div ng-cloak> {{name}} </div> 
+    
+     <form name="myForm">
+  <input type="text" ng-model="field" name="myField" required minlength="5" />
+<div ng-messages="myForm.myField.$error">
+  <div class="alert alert-danger"  ng-message="required">You did not enter a field</div>
+ <div  class="alert alert-danger"  ng-message="minlength">The value entered is too short</div>
+  </div>
+ </form>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>-->
+
+   
+    
+    
+    <script>
+       /*       window.addEventListener('hashchange', function()
+                                {
+            alert('hi');
+            console.log('Hash Changed !: ' + window.location.hash);
+                  
+                  
+                  if(window.location.hash === '#/bookmark/1')
+                  {
+                      console.log('page 1 is cool');
+                  } 
+            
+        });
+        */
+//        $(document).ready(function()
+//                         {
+//       
+//            
+//            
+//          //  alert('hi');
+//           console.log($('h3').attr('ng-reply', "baba"));
+//            console.log($('h3').attr('ng-reply'));
+//            
+//            var person = function(firstname, lastname)
+//            {
+//                this.firstname = firstname,
+//                this.lastname = lastname;
+//            }
+//            
+//            
+//            function logPerson()
+//            {
+//                console.log(person)
+//            }
+//            var john = new person('faizal', 'khan');
+//            
+//            console.log(john)
+//            
+//        })
+//   
+    
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+      <script src="https://code.angularjs.org/1.6.0/angular-route.js"></script>
+   <script src= "https://code.angularjs.org/1.3.0/angular-messages.js"></script>
+    <script src= "https://code.angularjs.org/1.3.0/angular-resource.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    
+    <script src="utility.angular.js"></script>
+<!--   <script src="app.js"></script>-->
+    </body>
+</html>
