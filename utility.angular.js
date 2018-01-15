@@ -9,8 +9,11 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
         templateUrl: 'pages/main.html',
         controller: 'mainController'
     })
-    
-    .when('/second', {
+   .when('/second', {
+        templateUrl: 'pages/second.html',
+        controller: 'secondController'
+    })
+    .when('/second/:num', {
         templateUrl: 'pages/second.html',
         controller: 'secondController'
     })
@@ -91,9 +94,10 @@ app.controller('mainController',['$scope', '$log',  function($scope, $log, $filt
                                  
                   $scope.name = "main";
 }])
-app.controller('secondController', ['$scope', '$log',  function($scope, $log, $filter, $resource)
+app.controller('secondController', ['$scope', '$log','$routeParams',  function($scope, $log, $routeParams)
               {
                                  
-                  $scope.name = "second";
+                  $scope.name = $routeParams.num || 1;
+                  console.log($scope.name);
 }])
 
