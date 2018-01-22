@@ -22,6 +22,45 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
 
 }]);
 
+app.service('nameService', function() {
+    var self = this;
+    this.name = 'john deo';
+    console.log(this);
+    this.namelength = function()
+    {
+        this.name = 'john';
+       return self.name.length; 
+        console.log(this);
+    }
+    
+    
+});
+app.controller('mainController',['$scope', '$log', 'nameService',  function($scope, $log, nameService)
+              {
+                                 
+                  $scope.name = "main";
+                  
+                 // $scope.main = "This is first property";
+                  
+                  //$log.log($scope);
+                  $log.main = "this is first property";
+                    $log.log($scope);
+                  
+                  $log.log(nameService.name);
+                  $log.log(nameService.namelength());
+                  
+                  
+}])
+app.controller('secondController', ['$scope', '$log','$routeParams',  function($scope, $log, $routeParams)
+              {
+                                 
+                  $scope.last = $routeParams.num || 1;
+                  //console.log($scope.name);
+                  $log.second = "Th is is second property";
+                  
+                  $log.log($scope);
+}])
+
 //app.controller('mainController',['$scope', '$log', '$filter', '$resource',  '$timeout', function($scope, $log, $filter, $resource, $timeout)
 //              {
 //                                 
@@ -89,15 +128,5 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
 //    console.log($scope.getname());*/
 //    
 //}])
-app.controller('mainController',['$scope', '$log',  function($scope, $log, $filter, $resource)
-              {
-                                 
-                  $scope.name = "main";
-}])
-app.controller('secondController', ['$scope', '$log','$routeParams',  function($scope, $log, $routeParams)
-              {
-                                 
-                  $scope.name = $routeParams.num || 1;
-                  console.log($scope.name);
-}])
+
 
