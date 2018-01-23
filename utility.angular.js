@@ -28,17 +28,26 @@ app.service('nameService', function() {
     console.log(this);
     this.namelength = function()
     {
-        this.name = 'john';
+          //this.name = 'john';
+          console.log(this);
+        //this.name = 'john';
        return self.name.length; 
-        console.log(this);
+      
     }
     
     
 });
 app.controller('mainController',['$scope', '$log', 'nameService',  function($scope, $log, nameService)
               {
-                                 
-                  $scope.name = "main";
+                 $scope.name = nameService.name;
+                  $scope.$watch('name',function()
+                  {
+                      nameService.name = $scope.name;
+                  })
+                   
+                 
+                  
+                  
                   
                  // $scope.main = "This is first property";
                   
@@ -51,9 +60,24 @@ app.controller('mainController',['$scope', '$log', 'nameService',  function($sco
                   
                   
 }])
-app.controller('secondController', ['$scope', '$log','$routeParams',  function($scope, $log, $routeParams)
+app.directive('searchResult', function()
+{
+     return {
+        restrict : 'AECM',         
+        templateUrl: 'directives/searchresult.html',
+        replace: false
+         
+     } 
+    
+})
+app.controller('secondController', ['$scope', '$log','$routeParams','nameService',  function($scope, $log, $routeParams, nameService)
               {
-                                 
+                    $scope.name = nameService.name;   
+                  
+                   $scope.$watch('name', function()
+                  {
+                      nameService.name = $scope.name;
+                  })
                   $scope.last = $routeParams.num || 1;
                   //console.log($scope.name);
                   $log.second = "Th is is second property";
