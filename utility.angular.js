@@ -46,8 +46,21 @@ app.controller('mainController',['$scope', '$log', 'nameService',  function($sco
                   })
                    
                  
+                  $scope.person= {
+                      
+                      name : 'john Doe',
+                      address: '27/1, gandhi Nagar, Cbe',
+                      city :'coimbatore',
+                      state : 'TN',
+                      Zip : '6102'
+                      
+                      
+                  }
                   
-                  
+                  $scope.formattingaddress = function(person)
+                  {
+                      return person.address + ' , ' +  person.city + ', ' + person.state + ' ' + person.zip;
+                  };
                   
                  // $scope.main = "This is first property";
                   
@@ -65,10 +78,15 @@ app.directive('searchResult', function()
      return {
         restrict : 'AECM',         
         templateUrl: 'directives/searchresult.html',
-        replace: false
-         
-     } 
+        replace: false,
+        scope : {
+              /* personName : "@",
+                 personAddress : "@"*/
+                personObject : "=",
+                formattedAddresFunction : "&"
+         } 
     
+     }
 })
 app.controller('secondController', ['$scope', '$log','$routeParams','nameService',  function($scope, $log, $routeParams, nameService)
               {
