@@ -61,7 +61,8 @@ app.controller('mainController',['$scope', '$log', 'nameService',  function($sco
                   {
                       return person.address + ' , ' +  person.city + ', ' + person.state + ' ' + person.zip;
                   };
-                  
+                
+                                    
                  // $scope.main = "This is first property";
                   
                   //$log.log($scope);
@@ -85,8 +86,9 @@ app.directive('searchResult', function()
                 personObject : "=",
                 formattedAddresFunction : "&"
          } 
+         
+     } 
     
-     }
 })
 app.controller('secondController', ['$scope', '$log','$routeParams','nameService',  function($scope, $log, $routeParams, nameService)
               {
